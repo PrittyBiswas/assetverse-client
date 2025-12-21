@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import PageTitle from "../../components/common/PageTitle";
 
-const API = "https://main-assetverse-server.vercel.app/api";
+const API = "https://assetverse-server-sooty.vercel.app/api";
 
 export default function RegisterEmployee() {
   const navigate = useNavigate();

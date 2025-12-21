@@ -4,7 +4,7 @@ import PageTitle from "../../components/common/PageTitle";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
-const API = "https://main-assetverse-server.vercel.app/api";
+const API = "https://assetverse-server-sooty.vercel.app/api";
 
 export default function Login() {
   const navigate = useNavigate();
