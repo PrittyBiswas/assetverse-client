@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import PageTitle from "../../components/common/PageTitle";
 
-const API = "http://localhost:5000/api";
+const API = "https://main-assetverse-server.vercel.app/api";
 
 export default function RegisterEmployee() {
   const navigate = useNavigate();
@@ -16,8 +16,8 @@ export default function RegisterEmployee() {
     const form = e.target;
 
     const data = {
-      name: form.name.value,
-      email: form.email.value,
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
       password: form.password.value,
       dateOfBirth: form.dob.value,
     };
@@ -25,12 +25,17 @@ export default function RegisterEmployee() {
     try {
       await axios.post(
         `${API}/auth/register/employee`,
-        data
+        data,
+        { withCredentials: true }
       );
 
       navigate("/login");
     } catch (err) {
-      alert(err.response?.data?.message || "Registration failed");
+      if (err.response?.status === 409) {
+        alert("Employee already exists");
+      } else {
+        alert(err.response?.data?.message || "Registration failed");
+      }
     } finally {
       setLoading(false);
     }
@@ -62,6 +67,7 @@ export default function RegisterEmployee() {
           placeholder="Password"
           required
           minLength={6}
+          autoComplete="current-password"
           className="input input-bordered w-full"
         />
 
@@ -72,7 +78,10 @@ export default function RegisterEmployee() {
           className="input input-bordered w-full"
         />
 
-        <button className="btn btn-primary w-full" disabled={loading}>
+        <button
+          className="btn btn-primary w-full"
+          disabled={loading}
+        >
           {loading ? "Registering..." : "Register Employee"}
         </button>
       </form>
