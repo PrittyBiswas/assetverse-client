@@ -23,11 +23,9 @@ export default function RegisterEmployee() {
     };
 
     try {
-      await axios.post(
-        `${API}/auth/register/employee`,
-        data,
-        { withCredentials: true }
-      );
+      await axios.post(`${API}/auth/register/employee`, data, {
+        withCredentials: true, // cookie support
+      });
 
       navigate("/login");
     } catch (err) {
