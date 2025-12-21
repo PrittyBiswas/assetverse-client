@@ -5,21 +5,17 @@ const instance = axios.create({
   withCredentials: true,
 });
 
-// ✅ Attach JWT token automatically
 instance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("access-token");
-
     if (token) {
       config.headers.authorization = `Bearer ${token}`;
     }
-
     return config;
   },
   (error) => Promise.reject(error)
 );
 
-// ✅ Optional: global response error handling
 instance.interceptors.response.use(
   (response) => response,
   (error) => {
