@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import PageTitle from "../../components/common/PageTitle";
+import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
-const API = "https://assetverse-server-sooty.vercel.app/api";
+const API = "https://main-assetverse-server.vercel.app/api";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -19,25 +19,24 @@ export default function Login() {
     setError("");
 
     const form = e.target;
-    const email = form.email.value.trim();
+    const email = form.email.value;
     const password = form.password.value;
 
     try {
-      const res = await axios.post(
-        `${API}/auth/jwt`,
-        { email, password },
-        { withCredentials: true } // important for cookie-based JWT
-      );
+      const res = await axios.post(`${API}/auth/jwt`, {
+        email,
+        password,
+      });
 
       const { token, role } = res.data;
 
-      // 1️⃣ Save token in localStorage
+      // 1️⃣ Save token
       localStorage.setItem("access-token", token);
 
-      // 2️⃣ Set user state
+      // 2️⃣ Save user with role
       setUser({ email, role });
 
-      // 3️⃣ Redirect based on role
+      // 3️⃣ Role-based redirect
       if (role === "hr") {
         navigate("/dashboard/assets", { replace: true });
       } else {
@@ -69,11 +68,12 @@ export default function Login() {
             type="password"
             placeholder="Password"
             required
-            autoComplete="current-password"
             className="w-full mb-4 input input-bordered"
           />
 
-          {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
+          {error && (
+            <p className="text-red-500 text-sm mb-3">{error}</p>
+          )}
 
           <button
             type="submit"

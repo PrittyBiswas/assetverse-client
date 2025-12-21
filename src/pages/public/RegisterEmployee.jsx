@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import PageTitle from "../../components/common/PageTitle";
 
-const API = "https://assetverse-server-sooty.vercel.app/api";
+const API = "https://main-assetverse-server.vercel.app/api";
 
 export default function RegisterEmployee() {
   const navigate = useNavigate();
@@ -23,9 +23,11 @@ export default function RegisterEmployee() {
     };
 
     try {
-      await axios.post(`${API}/auth/register/employee`, data, {
-        withCredentials: true, // cookie support
-      });
+      await axios.post(
+        `${API}/auth/register/employee`,
+        data,
+        { withCredentials: true }
+      );
 
       navigate("/login");
     } catch (err) {
