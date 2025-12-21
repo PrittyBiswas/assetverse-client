@@ -14,17 +14,7 @@ export default function AllRequests() {
 
   const handleAction = async (id, action) => {
     await axiosSecure.patch(`/requests/${id}`, { action });
-
-    setRequests((prev) =>
-      prev.map((r) =>
-        r._id === id
-          ? {
-              ...r,
-              requestStatus: action === "approve" ? "approved" : "rejected",
-            }
-          : r
-      )
-    );
+    setRequests((prev) => prev.filter((r) => r._id !== id));
   };
 
   return (
@@ -38,46 +28,39 @@ export default function AllRequests() {
               <tr>
                 <th>Employee</th>
                 <th>Asset</th>
-                <th>Status</th>
+                <th>Company</th>
+                <th>Date</th>
                 <th>Action</th>
               </tr>
             </thead>
-
             <tbody>
               {requests.map((r) => (
                 <tr key={r._id}>
                   <td>{r.requesterName}</td>
                   <td>{r.assetName}</td>
-                  <td>
-                    <span className="badge badge-outline">
-                      {r.requestStatus}
-                    </span>
-                  </td>
+                  <td>{r.companyName}</td>
+                  <td>{new Date(r.requestDate).toLocaleDateString()}</td>
                   <td className="space-x-2">
-                    {r.requestStatus === "pending" && (
-                      <>
-                        <button
-                          onClick={() => handleAction(r._id, "approve")}
-                          className="btn btn-xs btn-success"
-                        >
-                          Approve
-                        </button>
-                        <button
-                          onClick={() => handleAction(r._id, "reject")}
-                          className="btn btn-xs btn-error"
-                        >
-                          Reject
-                        </button>
-                      </>
-                    )}
+                    <button
+                      className="btn btn-xs btn-success"
+                      onClick={() => handleAction(r._id, "approve")}
+                    >
+                      Approve
+                    </button>
+                    <button
+                      className="btn btn-xs btn-error"
+                      onClick={() => handleAction(r._id, "reject")}
+                    >
+                      Reject
+                    </button>
                   </td>
                 </tr>
               ))}
 
               {requests.length === 0 && (
                 <tr>
-                  <td colSpan="4" className="text-center py-6">
-                    No requests
+                  <td colSpan="5" className="text-center py-6">
+                    No pending requests
                   </td>
                 </tr>
               )}

@@ -10,7 +10,7 @@ export default function EmployeeList() {
     axiosSecure.get("/affiliations/hr").then((res) => {
       setEmployees(res.data);
     });
-  }, []);
+  }, [axiosSecure]);
 
   return (
     <>
@@ -37,6 +37,14 @@ export default function EmployeeList() {
                 </td>
               </tr>
             ))}
+
+            {employees.length === 0 && (
+              <tr>
+                <td colSpan="4" className="text-center py-6">
+                  No employees found
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
