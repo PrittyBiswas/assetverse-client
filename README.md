@@ -1,17 +1,59 @@
-# React + Vite
+# AssetVerse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Name
 
-Currently, two official plugins are available:
+**AssetVerse** – Asset and Employee Management System
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Purpose
 
-## React Compiler
+AssetVerse is a full-stack MERN application built to streamline organizational asset and employee management. The system enables HR teams to manage departments, employees, and assets efficiently, while providing employees with controlled access based on roles. The project emphasizes secure authentication, scalability, and real-world deployment practices.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project reflects active development and troubleshooting across authentication, payment integration, deployment, and API design.
 
-## Expanding the ESLint configuration
+## 🌐 Live URL
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-"# assetverse-client" 
+* **Client (Frontend):** [https://assetverse-client-three.vercel.app/](https://assetverse-client-three.vercel.app/)
+* **Server (Backend API):** [https://vercel.com/pritty-biswas-projects/main-assetverse-server](https://vercel.com/pritty-biswas-projects/main-assetverse-server)
+
+## ✨ Key Features
+
+* Role-based authentication (HR & Employee)
+* Secure login and registration system
+* Employee management (add, update, view)
+* Department management (add, edit, delete)
+* Asset management and assignment tracking
+* Stripe payment integration
+* Protected routes using PrivateRoute and RoleRoute
+* RESTful API with JWT-based authorization
+* Environment variable security using dotenv
+* Fully deployed on Vercel (client & server)
+
+## 🧰 NPM Packages Used
+
+### Frontend
+
+* react
+* react-router-dom
+* axios
+* firebase
+* tailwindcss
+* daisyui
+
+### Backend
+
+* express
+* cors
+* dotenv
+* mongodb
+* stripe
+* jsonwebtoken
+
+---
+
+## 👤 Author
+
+**Pritty Biswas**
+
+## 🏷️ Project Type
+
+Full Stack MERN Application
