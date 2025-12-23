@@ -25,13 +25,13 @@ export default function Sidebar() {
       </div>
 
       {/* Menu */}
-      <ul className="menu p-4 gap-1 flex-1">
+      <ul className="menu p-6 gap-1 flex-1">
         {menu.map((item) => (
           <li key={item.path}>
             <NavLink
               to={item.path}
               className={({ isActive }) =>
-                isActive ? "active font-semibold" : ""
+                isActive ? "active font-semibold text-primary" : ""
               }
             >
               <item.icon size={18} />
@@ -45,7 +45,7 @@ export default function Sidebar() {
       <div className="p-4 border-t">
         <button
           onClick={handleLogout}
-          className="btn btn-error btn-sm w-full flex items-center gap-2"
+          className="btn btn-error bg-red-500  text-white btn-sm w-full flex items-center gap-2"
         >
           <LogOut size={16} />
           Logout
