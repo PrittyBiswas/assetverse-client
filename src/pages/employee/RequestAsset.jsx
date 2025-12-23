@@ -41,9 +41,9 @@ export default function RequestAsset() {
           No assets available at the moment
         </p>
       ) : (
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 ">
           {assets.map((asset) => (
-            <div key={asset._id} className="card bg-base-100 shadow">
+            <div key={asset._id} className="card bg-base-100 shadow-[0_20px_40px_-10px_rgba(30,58,138,0.6)]">
               <figure className="h-40 bg-base-200">
                 <img
                   src={asset.productImage}
@@ -52,7 +52,7 @@ export default function RequestAsset() {
                 />
               </figure>
 
-              <div className="card-body">
+              <div className="card-body ">
                 <h3 className="font-semibold">
                   {asset.productName}
                 </h3>
@@ -62,7 +62,8 @@ export default function RequestAsset() {
                 </p>
 
                 <textarea
-                  className="textarea textarea-bordered mt-2"
+                  className="w-full h-20 p-2 mt-2 border-2 border-blue-100 focus:outline-blue-400 rounded"
+
                   placeholder="Optional note"
                   value={notes[asset._id] || ""}
                   onChange={(e) =>
@@ -75,7 +76,7 @@ export default function RequestAsset() {
 
                 <button
                   onClick={() => handleRequest(asset._id)}
-                  className="btn btn-primary btn-sm mt-2"
+                  className="btn bg-primary text-white btn-sm mt-2"
                   disabled={asset.availableQuantity === 0}
                 >
                   Request
