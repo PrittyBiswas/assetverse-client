@@ -45,7 +45,7 @@ export default function Sidebar() {
       <div className="p-4 border-t">
         <button
           onClick={handleLogout}
-          className="btn btn-error bg-red-500  text-white btn-sm w-full flex items-center gap-2"
+          className="btn btn-error bg-red-500 hover:bg-red-800  text-white btn-sm w-full flex items-center gap-2"
         >
           <LogOut size={16} />
           Logout

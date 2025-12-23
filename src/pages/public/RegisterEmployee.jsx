@@ -42,7 +42,7 @@ export default function RegisterEmployee() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-12 p-6 bg-base-100 shadow rounded">
+    <div className="max-w-md mx-auto mt-12 p-6 bg-base-100 shadow-[0_20px_40px_-10px_rgba(30,58,138,0.6)] rounded">
       <PageTitle title="Register as Employee" />
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -50,7 +50,11 @@ export default function RegisterEmployee() {
           name="name"
           placeholder="Full Name"
           required
-          className="input input-bordered w-full"
+          className="w-full pl-4 mb-4 input input-bordered 
+             outline-none focus:outline-none 
+             focus:border-transparent 
+             shadow-[0_0_0_2px_rgba(30,58,138,0.35)]
+             focus:shadow-[0_0_0_3px_rgba(30,58,138,0.6)]"
         />
 
         <input
@@ -58,7 +62,11 @@ export default function RegisterEmployee() {
           type="email"
           placeholder="Email"
           required
-          className="input input-bordered w-full"
+          className="w-full pl-4 mb-4 input input-bordered 
+             outline-none focus:outline-none 
+             focus:border-transparent 
+             shadow-[0_0_0_2px_rgba(30,58,138,0.35)]
+             focus:shadow-[0_0_0_3px_rgba(30,58,138,0.6)]"
         />
 
         <input
@@ -68,18 +76,27 @@ export default function RegisterEmployee() {
           required
           minLength={6}
           autoComplete="current-password"
-          className="input input-bordered w-full"
+          className="w-full pl-4 mb-4 input input-bordered 
+             outline-none focus:outline-none 
+             focus:border-transparent 
+             shadow-[0_0_0_2px_rgba(30,58,138,0.35)]
+             focus:shadow-[0_0_0_3px_rgba(30,58,138,0.6)]"
         />
+
 
         <input
           name="dob"
           type="date"
           required
-          className="input input-bordered w-full"
+          className="w-full pl-4 mb-4 input input-bordered 
+             outline-none focus:outline-none 
+             focus:border-transparent 
+             shadow-[0_0_0_2px_rgba(30,58,138,0.35)]
+             focus:shadow-[0_0_0_3px_rgba(30,58,138,0.6)]"
         />
 
         <button
-          className="btn btn-primary w-full border-primary"
+          className="w-full btn bg-primary text-white hover:bg-blue-900"
           disabled={loading}
         >
           {loading ? "Registering..." : "Register Employee"}

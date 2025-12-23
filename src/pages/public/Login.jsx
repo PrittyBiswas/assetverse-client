@@ -30,13 +30,13 @@ export default function Login() {
 
       const { token, role } = res.data;
 
-  
+
       localStorage.setItem("access-token", token);
 
 
       setUser({ email, role });
 
-    
+
       if (role === "hr") {
         navigate("/dashboard/assets", { replace: true });
       } else {
@@ -51,7 +51,8 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-base-200">
-      <div className="w-96 bg-base-100 shadow-xl p-8 rounded-xl">
+      <div className="w-96 bg-base-100 p-8 rounded-xl shadow-[0_20px_40px_-10px_rgba(30,58,138,0.6)]">
+
         <PageTitle title="Sign in" />
 
         <form onSubmit={handleSubmit}>
@@ -60,15 +61,24 @@ export default function Login() {
             type="email"
             placeholder="Email"
             required
-            className="w-full mb-4 input input-bordered"
+            className="w-full pl-4 mb-4 input input-bordered 
+             outline-none focus:outline-none 
+             focus:border-transparent 
+             shadow-[0_0_0_2px_rgba(30,58,138,0.35)]
+             focus:shadow-[0_0_0_3px_rgba(30,58,138,0.6)]"
           />
+
 
           <input
             name="password"
             type="password"
             placeholder="Password"
             required
-            className="w-full mb-4 input input-bordered"
+            className="w-full pl-4 mb-4 input input-bordered 
+             outline-none focus:outline-none 
+             focus:border-transparent 
+             shadow-[0_0_0_2px_rgba(30,58,138,0.35)]
+             focus:shadow-[0_0_0_3px_rgba(30,58,138,0.6)]"
           />
 
           {error && (
@@ -78,7 +88,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full btn btn-primary"
+            className="w-full btn bg-primary text-white hover:bg-blue-900"
           >
             {loading ? "Signing in..." : "Login"}
           </button>
