@@ -79,7 +79,7 @@ export default function RegisterEmployee() {
         />
 
         <button
-          className="btn btn-primary w-full"
+          className="btn btn-primary w-full border-primary"
           disabled={loading}
         >
           {loading ? "Registering..." : "Register Employee"}

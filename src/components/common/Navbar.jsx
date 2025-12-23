@@ -1,13 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/firebase.config";
 
 export default function Navbar() {
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await signOut(auth);
+    try {
+      await signOut(auth);
+      navigate("/login");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
   };
 
   return (
@@ -24,7 +30,7 @@ export default function Navbar() {
       <div className="flex-none gap-4">
         {!user ? (
           <>
-            <Link to="/login" className="btn btn-ghost">
+            <Link to="/login" className="btn btn-ghost border border-primary rounded">
               Login
             </Link>
             <Link to="/register/employee" className="btn btn-outline btn-primary">
@@ -46,14 +52,25 @@ export default function Navbar() {
             </label>
             <ul
               tabIndex={0}
-              className="menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 items-center "
             >
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
+              <li className="py-2 w-full flex justify-center text-center">
+                <Link
+                  to="/dashboard"
+                  className="bg-gray-200 hover:bg-primary px-4 py-2 rounded text-center w-full"
+                >
+                  Dashboard
+                </Link>
               </li>
-              <li>
-                <button onClick={handleLogout}>Logout</button>
+              <li className="w-full flex justify-center">
+                <button
+                  onClick={handleLogout}
+                  className="bg-gray-200 hover:bg-primary px-4 py-2 rounded text-center w-full"
+                >
+                  Logout
+                </button>
               </li>
+
             </ul>
           </div>
         )}

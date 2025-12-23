@@ -30,13 +30,13 @@ export default function Login() {
 
       const { token, role } = res.data;
 
-      // 1️⃣ Save token
+  
       localStorage.setItem("access-token", token);
 
-      // 2️⃣ Save user with role
+
       setUser({ email, role });
 
-      // 3️⃣ Role-based redirect
+    
       if (role === "hr") {
         navigate("/dashboard/assets", { replace: true });
       } else {
