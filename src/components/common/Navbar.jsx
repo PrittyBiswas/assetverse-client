@@ -27,13 +27,13 @@ export default function Navbar() {
         </Link>
       </div>
 
-      <div className="flex-none gap-4">
+      <div className="flex gap-4">
         {!user ? (
           <>
             <Link to="/login" className="btn btn-ghost border border-primary rounded">
               Login
             </Link>
-            <Link to="/register/employee" className="btn btn-outline btn-primary">
+            <Link to="/register/employee" className="btn btn-primary">
               Join as Employee
             </Link>
             <Link to="/register/hr" className="btn btn-primary">
