@@ -65,15 +65,20 @@ export default function MyAssets() {
 
         <button
           onClick={() => generatePDF("my-assets")}
-          className="btn btn-outline"
+          className="btn btn-outline btn-primary border-2 border-primary text-primary font-bold p-3 px-6 rounded-lg 
+             hover:bg-primary hover:text-white 
+             transition-colors duration-200 
+             flex items-center gap-2"
         >
-          Print / PDF
+         Print / PDF
         </button>
+
+
       </div>
 
       <div
         id="my-assets"
-        className="card shadow"
+        className="card shadow-[0_20px_40px_-10px_rgba(30,58,138,0.6)]"
         style={{ backgroundColor: "#ffffff", color: "#000000" }}
       >
         <div className="card-body overflow-x-auto">
