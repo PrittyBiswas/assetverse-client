@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import PageTitle from "../../components/common/PageTitle";
 
-const API = "http://localhost:5000/api";
+const API = "https://main-assetverse-server.vercel.app/api";
 
 export default function RegisterHR() {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ export default function RegisterHR() {
     const data = {
       name: form.name.value,
       email: form.email.value,
-      password: form.password.value, // ✅ REQUIRED
+      password: form.password.value,
       companyName: form.companyName.value,
       companyLogo: form.companyLogo.value,
       dateOfBirth: form.dob.value,
@@ -100,10 +100,14 @@ export default function RegisterHR() {
           name="dob"
           type="date"
           required
-          className="w-full btn bg-primary text-white hover:bg-blue-900"
+          className="w-full pl-4 mb-4 input input-bordered 
+             outline-none focus:outline-none 
+             focus:border-transparent 
+             shadow-[0_0_0_2px_rgba(30,58,138,0.35)]
+             focus:shadow-[0_0_0_3px_rgba(30,58,138,0.6)]"
         />
 
-        <button className="btn btn-primary w-full" disabled={loading}>
+        <button className="btn  w-full  bg-primary text-white hover:bg-blue-900" disabled={loading}>
           {loading ? "Registering..." : "Register HR"}
         </button>
       </form>

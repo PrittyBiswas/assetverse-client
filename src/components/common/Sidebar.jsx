@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { hrMenu, employeeMenu } from "./menuConfig";
 import useRole from "../../hooks/useRole";
 import useAuth from "../../hooks/useAuth";
@@ -20,8 +20,8 @@ export default function Sidebar() {
     <aside className="w-64 bg-base-100 shadow-md hidden md:flex flex-col">
       {/* Header */}
       <div className="p-6 border-b">
-        <h2 className="text-xl font-bold text-primary">Dashboard</h2>
-        <p className="text-sm text-gray-500 capitalize">{role}</p>
+        <Link to="/" className="text-xl font-bold text-primary">AssetVerse </Link>
+        <p className="text-sm text-gray-500 capitalize">{role} Dashboard</p>
       </div>
 
       {/* Menu */}
