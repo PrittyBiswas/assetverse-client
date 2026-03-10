@@ -50,6 +50,8 @@ This project reflects active development and troubleshooting across authenticati
 
 ---
 ### LOGIN Details
+Live link: https://assetverse-client-three.vercel.app/
+
 Employees: iprittybiswas@gmail.com
 pass : ipritty090
 
