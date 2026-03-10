@@ -49,6 +49,12 @@ This project reflects active development and troubleshooting across authenticati
 * jsonwebtoken
 
 ---
+### LOGIN Details
+Employees: iprittybiswas@gmail.com
+pass : ipritty090
+
+HR : pritty090@gmail.com
+pass : ipritty090
 
 ## 👤 Author
 
